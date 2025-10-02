@@ -33,13 +33,18 @@ class PostBase(BaseModel):
 class PostCreate(PostBase):
     pass
 
-class PostResponse(PostBase):
+class Post(PostBase):
     id: int
     created_at:datetime
     owner_id:int
     owner:UserResponse
     class Config:
         orm_mode = True
+
+class PostOut(BaseModel):
+    Post:Post
+    votes:int
+
 
 
 
